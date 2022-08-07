@@ -1,6 +1,6 @@
 import ExpBar from "features/LevelUp/components/ExpBar";
 import { useState } from "react";
-import { Input, Wrapper, Button } from "./styles";
+import { Input, Wrapper, Button, Container } from "./styles";
 import { useLevelUp } from "features/context";
 import Avatar from "../Avatar";
 
@@ -24,7 +24,7 @@ const LevelUpSimulator = () => {
 	};
 
 	return (
-		<>
+		<Container>
 			<Avatar />
 			<Wrapper>
 				<ExpBar />
@@ -40,7 +40,7 @@ const LevelUpSimulator = () => {
 				<Button onClick={handleCalculate}>Calculate</Button>
 				<Button onClick={handleRefresh}>Refresh</Button>
 			</Wrapper>
-		</>
+		</Container>
 	);
 };
 

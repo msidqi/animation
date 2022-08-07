@@ -10,6 +10,7 @@ function Avatar() {
 	const {
 		shouldTriggerAnimation,
 		shouldTriggerNextLevelAnimation,
+		backgroundApi,
 	} = useLevelUp();
 	const [toggle, setToggle] = useState(false);
 	const [styles, api] = useSpring(() => ({
@@ -34,12 +35,21 @@ function Avatar() {
 						// filter: "blur(5px)",
 					});
 					setToggle(true);
-					await next({ scale: 1 });
+					await next({ scale: 1.2 });
 
 					levelApi.start({
 						to: { scale: 1, transform: "translateY(0px)" },
 						from: { scale: 0, transform: "translateY(+20px)" },
 						delay: 1500,
+					});
+					backgroundApi.start({
+						from: {
+							opacity: 0,
+						},
+						to: async (next) => {
+							await next({ opacity: 1 });
+							await next({ opacity: 0, delay: 1500 });
+						},
 					});
 					await next({
 						scale: 1,

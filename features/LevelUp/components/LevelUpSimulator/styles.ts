@@ -7,3 +7,7 @@ export const Wrapper = styled.div`
 	color: white;
 `;
 export const Button = styled.button``;
+
+export const Container = styled.div`
+	z-index: 9;
+`;

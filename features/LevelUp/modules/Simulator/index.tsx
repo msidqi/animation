@@ -1,13 +1,16 @@
-import { Wrapper } from "./styles";
+import { Wrapper, Background } from "./styles";
 import LevelUpSimulator from "../../components/LevelUpSimulator";
-import { LevelUpProvider } from "features/context";
+import { useLevelUp } from "features/context";
+import { animated } from "react-spring";
 
-const Simulator = () => (
-	<Wrapper>
-		<LevelUpProvider>
+const Simulator = () => {
+	const { backgroundStyles } = useLevelUp();
+	return (
+		<Wrapper>
+			<Background as={animated.div} style={backgroundStyles} />
 			<LevelUpSimulator />
-		</LevelUpProvider>
-	</Wrapper>
-);
+		</Wrapper>
+	);
+};
 
 export default Simulator;

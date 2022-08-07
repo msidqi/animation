@@ -18,6 +18,8 @@ type LevelUpState = {
 	// @TODO: type styles and api
 	styles: any;
 	api: any;
+	backgroundApi: any;
+	backgroundStyles: any;
 };
 
 const INITIAL_STATE: LevelUpState = {
@@ -31,6 +33,8 @@ const INITIAL_STATE: LevelUpState = {
 	startAnimation: () => {},
 	styles: {},
 	api: {},
+	backgroundApi: {},
+	backgroundStyles: {},
 };
 
 const LevelUpContext = createContext<
@@ -122,8 +126,24 @@ export const LevelUpProvider = ({
 		},
 	}));
 
+	const [backgroundStyles, backgroundApi] = useSpring(() => ({
+		from: {
+			opacity: 0,
+		},
+		to: { opacity: 0 },
+	}));
+
 	return (
-		<LevelUpContext.Provider value={{ ...state, dispatch, api, styles }}>
+		<LevelUpContext.Provider
+			value={{
+				...state,
+				dispatch,
+				api,
+				styles,
+				backgroundApi,
+				backgroundStyles,
+			}}
+		>
 			{children}
 		</LevelUpContext.Provider>
 	);
