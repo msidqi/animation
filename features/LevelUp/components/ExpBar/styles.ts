@@ -8,17 +8,10 @@ export const Wrapper = styled.div`
 	margin: 0 auto 3rem auto;
 `;
 
-type BarProps = {
-	animate?: boolean;
-	fromPercent?: number;
-	toPercent?: number;
-};
-
-export const Bar = styled.div<BarProps>`
+export const Bar = styled.div`
 	opacity: 1;
 	position: relative;
 	height: 100%;
-	/* width: ${({ toPercent }) => toPercent ?? 0}%; */
 	background: linear-gradient(90deg, #445ef1 -2.33%, #0fc9f2 100%);
 	border-radius: 124px;
 	box-shadow: 0 0 30px 1px rgba(68, 94, 241, 0.5),

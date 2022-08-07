@@ -7,15 +7,7 @@ import { Wrapper, Bar, Icon, Progress } from "./styles";
 
 const ExpBar = React.memo(() => {
 	const state = useLevelUp();
-	const {
-		dispatch,
-		level,
-		fromPercent,
-		toPercent,
-		expInCurrentLevel,
-		styles,
-		api,
-	} = state;
+	const { dispatch, level, expInCurrentLevel, styles, api } = state;
 
 	const startAnimation = (fromPercent?: number, toPercent?: number) =>
 		api.start({
@@ -43,15 +35,10 @@ const ExpBar = React.memo(() => {
 
 	return (
 		<Wrapper>
-			<Bar
-				as={animated.div}
-				style={{ ...styles }}
-				fromPercent={fromPercent}
-				toPercent={toPercent}
-				animate
-			>
+			<Bar as={animated.div} style={{ ...styles }}>
 				<Progress>
-					{expInCurrentLevel} /{getAmountNeededToLvlUp(level)}
+					{expInCurrentLevel.toFixed(0)} /
+					{getAmountNeededToLvlUp(level).toFixed(0)}
 				</Progress>
 				<StarIcon as={Icon} />
 			</Bar>
